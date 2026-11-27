@@ -1,0 +1,8 @@
+{
+  "description": "Schema example only. Replace with identities generated for your own test environment.",
+  "password_env": "SEC_TEST_PASSWORD",
+  "departments": [],
+  "users": [],
+  "roles": {},
+  "verified": false
+}

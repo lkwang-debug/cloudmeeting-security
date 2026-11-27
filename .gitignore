@@ -1,0 +1,36 @@
+# Local environments and runtime outputs
+.venv*/
+venv/
+node_modules/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+reports/
+evidence/
+state/
+tools_cache/
+sources/
+_recon_chunks/
+dist/
+build/
+*.egg-info/
+*.log
+*.bak
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+configs/scan.local.yaml
+configs/*.local.yaml
+configs/secrets*
+fixtures/identities.json
+fixtures/db_snapshots.json
+adapters/oast/oast_state.json
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+publish/

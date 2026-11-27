@@ -1,0 +1,35 @@
+# 自动识别规则（Week0 骨架）：从端点/页面/流量中识别候选专项
+# 输出：knowledge/detect_candidates.json（候选端点 + 依据 + 所需前置 + 置信度）
+version: 1
+
+rules:
+  ssrf_xxe:
+    enabled_by: execution.ssrf.enabled
+    requires: [oast_domain]
+    path_keywords: [url, uri, callback, webhook, redirect, file, path, xml, import,
+                    avatar, photo, live, stream, ai, model, sso, ftp]
+    body_keywords: [url, callback, redirect, fileUrl, xml, importFile]
+    confidence: medium
+  long_connection:
+    enabled_by: execution.longconn.enabled
+    detect_sources: [browser_cdp, network_log, api_docs]
+    keywords: [ws://, wss://, WebSocket, EventSource, text/event-stream]
+    confidence: high
+  race:
+    enabled_by: execution.race.enabled
+    path_keywords: [create, add, batch, update, authorize, grant, delete, submit]
+    requires: [isolated_data, write_whitelist]
+    confidence: low
+  gateway_smuggling:
+    enabled_by: execution.gateway.smuggling
+    detect_sources: [multi_entry_diff, proxy_headers, cl_te_anomaly]
+    requires: [isolated_policy, low_rate]
+    confidence: low
+  cache_poisoning:
+    enabled_by: execution.gateway.cache_poisoning
+    detect_sources: [cache_headers, cdn_headers, multi_entry_diff]
+    confidence: low
+  client_artifacts:
+    enabled_by: true
+    sources: [download_center, /serv/v1/index/link]
+    checks: [credentials_scan, component_sbom, apk_manifest_permissions]

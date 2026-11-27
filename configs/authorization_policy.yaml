@@ -1,0 +1,27 @@
+version: 1
+authorization:
+  written_authorization: false
+  contact: ''
+  time_window: ''
+  source_ip_allowlisted: false
+scope:
+  targets_confirmed: false
+  ports:
+  - 28443
+  - 28080
+  domains: []
+write_policy:
+  enabled: false
+  allowlist: []
+  require_snapshot: true
+  require_restore_verify: true
+destructive_tests: false
+oast:
+  enabled: false
+  domain: ''
+  owner: ''
+rate_limit:
+  rps: 2
+  concurrency: 2
+identity_pool_ready: false
+worker_ready: false

@@ -1,0 +1,35 @@
+# 多发行版 → OSV 生态映射（部署环境：欧拉/Kylin/CentOS/统信 UOS/Debian/Ubuntu）
+# 近似映射会降低置信度，最终以厂商安全公告/补丁级别确认。
+version: 1
+distros:
+  openEuler:
+    match: ["openeuler", "openEuler"]
+    ecosystems: ["openEuler"]
+    confidence: high
+    note: OSV 原生 openEuler 生态
+  kylin:
+    match: ["kylin", "麒麟"]
+    ecosystems: ["Red Hat:8"]
+    confidence: medium
+    note: Kylin V10 基于 CentOS 8 系，OSV 用 Red Hat:8 近似，需厂商公告确认
+  centos:
+    match: ["centos"]
+    ecosystems_by_version: {"7": "Red Hat:7", "8": "Red Hat:8"}
+    default: "Red Hat:8"
+    confidence: medium
+    note: CentOS 与 RHEL 近似，需核对补丁
+  uos:
+    match: ["uos", "uniontech", "统信"]
+    ecosystems: ["Debian:10"]
+    confidence: low
+    note: 统信 UOS V20 基于 Debian 10，OSV 用 Debian:10 近似，置信度低
+  debian:
+    match: ["debian"]
+    ecosystems_by_version: {"10": "Debian:10", "11": "Debian:11", "12": "Debian:12"}
+    default: "Debian:12"
+    confidence: medium
+  ubuntu:
+    match: ["ubuntu"]
+    ecosystems_by_version: {"20.04": "Ubuntu:20.04", "22.04": "Ubuntu:22.04", "18.04": "Ubuntu:18.04"}
+    default: "Ubuntu:22.04"
+    confidence: medium

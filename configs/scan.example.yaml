@@ -1,0 +1,104 @@
+# Copy with: python tools/init_local.py
+# Required: web.base_url, env.version, accounts.admin, idor_a/idor_b, api.openapi_key/secret.
+# Optional sections stay blank/disabled until the required capability is prepared.
+# Passwords may use ${ENV_VARIABLE}; only local configuration stores real values.
+env:
+  name: local-test
+  version: ''
+web:
+  base_url: ''
+  scheme: https
+  port: 28443
+  internal_url: ''
+  host: ''
+  ip: ''
+accounts:
+  admin:
+    username: ''
+    password: ''
+  preflight_admin:
+    username: ''
+    password: ''
+  idor_a:
+    username: ''
+    password: ''
+    depart_id: null
+  idor_b:
+    username: ''
+    password: ''
+    depart_id: null
+  weak_test_users: []
+  login_test_users: []
+  weak_test_password: ''
+  login_test_password: ''
+api:
+  openapi_key: ''
+  openapi_secret: ''
+  oauth_client_id: ''
+  oauth_client_secret: ''
+  control_room_id: null
+recording:
+  mode: auto
+  group_id_a: null
+  group_id_b: null
+  room_id_a: null
+  room_id_b: null
+  meeting_id: null
+data_strategy:
+  auto_create:
+    room: false
+    user: false
+    department: false
+    terminal: false
+  manual:
+    room_id_a: null
+    room_id_b: null
+    user_id_a: null
+    dept_id_a: null
+ui:
+  chromedriver: ''
+  expected_chrome_major: null
+hosts:
+  app_ip: ''
+  ssh_user: ''
+  ssh_pass: ''
+  db_host: ''
+  db_port: 22007
+  db_user: ''
+  db_pass: ''
+  redis_host: ''
+  redis_port: 22002
+  redis_pass: ''
+scan:
+  appscan_report: ''
+  deploy_package: ''
+  oast_domain: ''
+  allow_write_chain: false
+report:
+  customer: ''
+  output_dir: reports/final
+port_scan:
+  enabled: false
+  extra_ports:
+  - 1089
+  - 28201
+  timeout: 1.5
+  max_workers: 10
+internal_exposure:
+  enabled: false
+  hosts: []
+  ports:
+  - 22
+  - 4369
+  - 5672
+  - 6379
+  - 15672
+  - 22002
+  - 22003
+  - 22006
+  - 22007
+  - 22010
+  - 22014
+  - 25672
+  timeout: 1.5
+  max_workers: 10

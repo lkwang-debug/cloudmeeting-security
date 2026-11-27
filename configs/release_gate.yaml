@@ -1,0 +1,504 @@
+version: 1
+profiles:
+  quick:
+  - crypto_inventory
+  - secret_scan
+  - plaintext_http
+  - xss_full
+  - upload_webshell
+  - rce_probe
+  - file_download
+  - idor_matrix
+  - login_policy
+  - sms_bomb
+  - auth_token_checks
+  - soap_checks
+  - client_crypto
+  - os_fleet_sbom
+  - sbom_collect
+  - cve_gate
+  - middleware_scan
+  - import_external
+  - injection_matrix
+  - security_headers
+  - import_appscan
+  - deploy_package_scan
+  - weak_password_accounts
+  - endpoint_exposure
+  - grype_cve
+  - trivy_cve
+  - rce_deserialization
+  - upload_content
+  - login_rate_limit
+  - idor_h5
+  - dependency_rce
+  - xss_crawl
+  - crypto_app
+  - tls_ssl_deep
+  - legacy_poc
+  - user_enum
+  - middleware_extra
+  - open_redirect
+  - injection_extended
+  - csrf_check
+  - ssrf_check
+  - oauth_secret_check
+  - cookie_security
+  - web_logic_check
+  - asset_inventory
+  - ip_spoof
+  - nginx_bypass
+  release:
+  - crypto_inventory
+  - secret_scan
+  - plaintext_http
+  - xss_full
+  - upload_webshell
+  - rce_probe
+  - file_download
+  - idor_matrix
+  - login_policy
+  - sms_bomb
+  - auth_token_checks
+  - soap_checks
+  - client_crypto
+  - os_fleet_sbom
+  - sbom_collect
+  - cve_gate
+  - middleware_scan
+  - import_external
+  - xss_browser
+  - injection_matrix
+  - security_headers
+  - import_appscan
+  - deploy_package_scan
+  - weak_password_accounts
+  - endpoint_exposure
+  - grype_cve
+  - trivy_cve
+  - rce_deserialization
+  - upload_content
+  - xss_dom
+  - login_rate_limit
+  - idor_h5
+  - dependency_rce
+  - xss_crawl
+  - crypto_app
+  - xss_full_ui
+  - tls_ssl_deep
+  - legacy_poc
+  - user_enum
+  - middleware_extra
+  - open_redirect
+  - injection_extended
+  - csrf_check
+  - ssrf_check
+  - oauth_secret_check
+  - cookie_security
+  - web_logic_check
+  - asset_inventory
+  - csrf_ui_check
+  - rce_write_chain
+  - ip_spoof
+  - nginx_bypass
+  - injection_full
+  - xss_full_api
+  - idor_full
+  - idor_objects
+  - xss_write_forms
+  - injection_write_isolated
+  - business_logic_full
+  - idor_recording_meeting
+  - xss_terminal
+  - port_inventory
+checks:
+  crypto_inventory:
+    cmd: checks/crypto_inventory.py
+    category: crypto
+    required: true
+    timeout: 300
+  secret_scan:
+    cmd: checks/secret_scan.py
+    category: crypto
+    required: true
+    timeout: 300
+  plaintext_http:
+    cmd: checks/plaintext_http.py
+    category: crypto
+    required: true
+    timeout: 120
+  xss_full:
+    cmd: checks/xss_full.py
+    category: application
+    required: true
+    timeout: 300
+  upload_webshell:
+    cmd: checks/upload_webshell.py
+    category: application
+    required: true
+    timeout: 300
+  rce_probe:
+    cmd: checks/rce_probe.py
+    category: application
+    required: true
+    timeout: 300
+  file_download:
+    cmd: checks/file_download.py
+    category: application
+    required: true
+    timeout: 300
+  idor_matrix:
+    cmd: checks/idor_matrix.py
+    category: application
+    required: true
+    timeout: 300
+  login_policy:
+    cmd: checks/login_policy.py
+    category: application
+    required: true
+    timeout: 180
+  sms_bomb:
+    cmd: checks/sms_bomb.py
+    category: application
+    required: false
+    timeout: 120
+  auth_token_checks:
+    cmd: checks/auth_token_checks.py
+    category: application
+    required: true
+    timeout: 180
+  soap_checks:
+    cmd: checks/soap_checks.py
+    category: application
+    required: true
+    timeout: 180
+  client_crypto:
+    cmd: checks/client_crypto.py
+    category: crypto
+    required: true
+    timeout: 300
+  sbom_collect:
+    cmd: checks/sbom_collect.py
+    category: component
+    required: true
+    timeout: 300
+  cve_gate:
+    cmd: checks/cve_gate.py
+    category: component
+    required: true
+    timeout: 600
+  middleware_scan:
+    cmd: checks/middleware_scan.py
+    category: middleware
+    required: true
+    timeout: 300
+  import_external:
+    cmd: checks/import_external.py
+    category: application
+    required: false
+    timeout: 120
+  xss_browser:
+    cmd: checks/xss_browser.py
+    category: application
+    required: false
+    timeout: 360
+  injection_matrix:
+    cmd: checks/injection_matrix.py
+    category: application
+    required: false
+    timeout: 300
+  os_fleet_sbom:
+    cmd: checks/os_fleet_sbom.py
+    category: component
+    required: false
+    timeout: 300
+  security_headers:
+    cmd: checks/security_headers.py
+    category: application
+    required: false
+    timeout: 120
+  import_appscan:
+    cmd: checks/import_appscan.py
+    category: application
+    required: false
+    timeout: 180
+  deploy_package_scan:
+    cmd: checks/deploy_package_scan.py
+    category: component
+    required: false
+    timeout: 300
+  weak_password_accounts:
+    cmd: checks/weak_password_accounts.py
+    category: application
+    required: false
+    timeout: 180
+  endpoint_exposure:
+    cmd: checks/endpoint_exposure.py
+    category: application
+    required: false
+    timeout: 120
+  grype_cve:
+    cmd: checks/grype_cve.py
+    category: component
+    required: false
+    timeout: 120
+    blocking: false
+  trivy_cve:
+    cmd: checks/trivy_cve.py
+    category: component
+    required: false
+    timeout: 120
+  rce_deserialization:
+    cmd: checks/rce_deserialization.py
+    category: application
+    required: false
+    timeout: 300
+  upload_content:
+    cmd: checks/upload_content.py
+    category: application
+    required: false
+    timeout: 300
+  xss_dom:
+    cmd: checks/xss_dom.py
+    category: application
+    required: false
+    timeout: 300
+  login_rate_limit:
+    cmd: checks/login_rate_limit.py
+    category: application
+    required: false
+    timeout: 180
+  idor_h5:
+    cmd: checks/idor_h5.py
+    category: application
+    required: false
+    timeout: 180
+  dependency_rce:
+    cmd: checks/dependency_rce.py
+    category: application
+    required: false
+    timeout: 120
+  xss_crawl:
+    cmd: checks/xss_crawl.py
+    category: application
+    required: false
+    timeout: 300
+  crypto_app:
+    cmd: checks/crypto_app.py
+    category: crypto
+    required: false
+    timeout: 300
+  xss_full_ui:
+    cmd: checks/xss_full_ui.py
+    category: application
+    required: false
+    timeout: 600
+  tls_ssl_deep:
+    cmd: checks/tls_ssl_deep.py
+    category: crypto
+    required: false
+    timeout: 180
+  ssh_algorithms:
+    cmd: checks/ssh_algorithms.py
+    category: middleware
+    required: false
+    timeout: 180
+  legacy_poc:
+    cmd: checks/legacy_poc.py
+    category: application
+    required: false
+    timeout: 180
+  user_enum:
+    cmd: checks/user_enum.py
+    category: application
+    required: false
+    timeout: 120
+  host_baseline:
+    cmd: checks/host_baseline.py
+    category: middleware
+    required: false
+    timeout: 180
+  middleware_extra:
+    cmd: checks/middleware_extra.py
+    category: middleware
+    required: false
+    timeout: 180
+  open_redirect:
+    cmd: checks/open_redirect.py
+    category: application
+    required: false
+    timeout: 180
+  os_package_cve:
+    cmd: checks/os_package_cve.py
+    category: component
+    required: false
+    timeout: 300
+  injection_extended:
+    cmd: checks/injection_extended.py
+    category: application
+    required: false
+    timeout: 300
+  csrf_check:
+    cmd: checks/csrf_check.py
+    category: application
+    required: false
+    timeout: 120
+  ssrf_check:
+    cmd: checks/ssrf_check.py
+    category: application
+    required: false
+    timeout: 240
+  oauth_secret_check:
+    cmd: checks/oauth_secret_check.py
+    category: application
+    required: false
+    timeout: 120
+  cookie_security:
+    cmd: checks/cookie_security.py
+    category: application
+    required: false
+    timeout: 120
+  web_logic_check:
+    cmd: checks/web_logic_check.py
+    category: application
+    required: false
+    timeout: 120
+  asset_inventory:
+    cmd: checks/asset_inventory.py
+    category: application
+    required: false
+    timeout: 120
+  rce_write_chain:
+    cmd: checks/rce_write_chain.py
+    category: application
+    required: false
+    timeout: 300
+  csrf_ui_check:
+    cmd: checks/csrf_ui_check.py
+    category: application
+    required: false
+    timeout: 300
+  ip_spoof:
+    cmd: checks/ip_spoof.py
+    category: application
+    required: false
+    timeout: 180
+  nginx_bypass:
+    cmd: checks/nginx_bypass.py
+    category: application
+    required: false
+    timeout: 180
+  injection_full:
+    cmd: checks/injection_full.py
+    category: application
+    required: false
+    timeout: 900
+  xss_full_api:
+    cmd: checks/xss_full_api.py
+    category: application
+    required: false
+    timeout: 900
+  idor_full:
+    cmd: checks/idor_full.py
+    category: application
+    required: false
+    timeout: 600
+  idor_objects:
+    cmd: checks/idor_objects.py
+    category: application
+    required: false
+    timeout: 300
+  xss_write_forms:
+    cmd: checks/xss_write_forms.py
+    category: application
+    required: false
+    timeout: 600
+  injection_write_isolated:
+    cmd: checks/injection_write_isolated.py
+    category: application
+    required: false
+    timeout: 600
+  business_logic_full:
+    cmd: checks/business_logic_full.py
+    category: application
+    required: false
+    timeout: 300
+  idor_recording_meeting:
+    cmd: checks/idor_recording_meeting.py
+    category: application
+    required: false
+    timeout: 300
+  xss_terminal:
+    cmd: checks/xss_terminal.py
+    category: application
+    required: false
+    timeout: 600
+  port_inventory:
+    cmd: checks/port_inventory.py
+    category: application
+    required: false
+    timeout: 180
+categories:
+  application:
+    fail_severities:
+    - critical
+    - high
+    required:
+    - xss_full
+    - upload_webshell
+    - rce_probe
+    - file_download
+    - login_policy
+    - auth_token_checks
+    - soap_checks
+    blocked_is_failure: false
+  crypto:
+    fail_severities:
+    - critical
+    - high
+    required:
+    - crypto_inventory
+    - secret_scan
+    - plaintext_http
+    - client_crypto
+    blocked_is_failure: false
+  component:
+    fail_severities:
+    - critical
+    - high
+    required:
+    - sbom_collect
+    - cve_gate
+    blocked_is_failure: false
+  middleware:
+    fail_severities:
+    - critical
+    - high
+    required:
+    - middleware_scan
+    blocked_is_failure: true
+middleware:
+  host: 192.0.2.10
+  services:
+    mysql:
+      port: 22007
+      protocol: mysql
+    redis:
+      port: 22002
+      protocol: redis
+    rabbitmq:
+      port: 5672
+      management_port: 15672
+      protocol: rabbitmq
+    zookeeper:
+      port: 2181
+      protocol: zookeeper
+    icegrid:
+      port: 4061
+      protocol: tcp
+scanners:
+  external_enabled: false
+  tools:
+  - nuclei
+  - sqlmap
+  - nmap

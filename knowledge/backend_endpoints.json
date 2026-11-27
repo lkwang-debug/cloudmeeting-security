@@ -1,0 +1,366 @@
+{
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/auth/v1/identity/get",
+      "count": 1,
+      "pages": [
+        "/ui/host-management/account-authentication-management"
+      ],
+      "query_keys": [],
+      "body_keys": []
+    },
+    {
+      "method": "POST",
+      "path": "/auth/v1/login",
+      "count": 1,
+      "pages": [
+        "/ui/login"
+      ],
+      "query_keys": [],
+      "body_keys": [
+        "password",
+        "name",
+        "verifyCode",
+        "timestamp"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/auth/v1/login/verifyCode",
+      "count": 1,
+      "pages": [
+        "/ui/login"
+      ],
+      "query_keys": [],
+      "body_keys": []
+    },
+    {
+      "method": "GET",
+      "path": "/basis/v1/client-functions",
+      "count": 1,
+      "pages": [
+        "/ui/feature-permission/client-feature"
+      ],
+      "query_keys": [],
+      "body_keys": []
+    },
+    {
+      "method": "GET",
+      "path": "/basis/v1/client-functions/contact_whitelist/users",
+      "count": 1,
+      "pages": [
+        "/ui/organizational-management/contact-whitelist"
+      ],
+      "query_keys": [
+        "pageNumber",
+        "pageSize",
+        "cascadeQuery",
+        "useCache"
+      ],
+      "body_keys": []
+    },
+    {
+      "method": "GET",
+      "path": "/basis/v1/client-functions/defaults",
+      "count": 1,
+      "pages": [
+        "/ui/feature-permission/client-feature"
+      ],
+      "query_keys": [],
+      "body_keys": []
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/departInfo/departTreeSearch",
+      "count": 2,
+      "pages": [
+        "/ui/organizational-management/user-management",
+        "/ui/organizational-management/terminal-management"
+      ],
+      "query_keys": [],
+      "body_keys": [
+        "departId",
+        "excludeSub",
+        "searchDeptName"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/departInfo/queryDepartPage",
+      "count": 1,
+      "pages": [
+        "/ui/organizational-management/department-management"
+      ],
+      "query_keys": [],
+      "body_keys": [
+        "pageNumber",
+        "pageSize",
+        "parentDepartId",
+        "departName"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/basis/v1/departInfo/queryDepartTree",
+      "count": 9,
+      "pages": [
+        "/ui/organizational-management/user-management",
+        "/ui/organizational-management/department-management",
+        "/ui/organizational-management/terminal-management",
+        "/ui/organizational-management/contact-whitelist",
+        "/ui/conference-management/conference-room-info",
+        "/ui/conference-management/online-conference",
+        "/ui/conference-management/conference-record",
+        "/ui/conference-management/conference-statistics",
+        "/ui/recording/recording-task"
+      ],
+      "query_keys": [],
+      "body_keys": []
+    },
+    {
+      "method": "GET",
+      "path": "/basis/v1/groups",
+      "count": 2,
+      "pages": [
+        "/ui/organizational-management/user-management",
+        "/ui/conference-management/conference-room-info"
+      ],
+      "query_keys": [],
+      "body_keys": []
+    },
+    {
+      "method": "GET",
+      "path": "/basis/v1/nodeAuth/queryNodeAuthInfo",
+      "count": 4,
+      "pages": [
+        "/ui/system-info/node-authorization-information",
+        "/ui/organizational-management/terminal-management",
+        "/ui/recording/recording-task",
+        "/ui/system-info/node-authorization-information"
+      ],
+      "query_keys": [],
+      "body_keys": []
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/role/list",
+      "count": 1,
+      "pages": [
+        "/ui/feature-permission/background-permission"
+      ],
+      "query_keys": [],
+      "body_keys": [
+        "pageSize",
+        "pageNumber",
+        "sortName",
+        "sortOrder"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/userInfo/queryUserPage",
+      "count": 2,
+      "pages": [
+        "/ui/organizational-management/user-management",
+        "/ui/organizational-management/user-management"
+      ],
+      "query_keys": [],
+      "body_keys": [
+        "departId",
+        "userName",
+        "displayName",
+        "pageNumber",
+        "pageSize",
+        "userNameOrder"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/ai/model/page",
+      "count": 1,
+      "pages": [
+        "/ui/ai-model/model-settings"
+      ],
+      "query_keys": [],
+      "body_keys": [
+        "pageNumber",
+        "pageSize"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/serv/v1/conf/category",
+      "count": 1,
+      "pages": [
+        "/ui/host-management/host-list"
+      ],
+      "query_keys": [],
+      "body_keys": []
+    },
+    {
+      "method": "GET",
+      "path": "/serv/v1/conf/initial",
+      "count": 2,
+      "pages": [
+        "/ui/host-management/host-list",
+        "/ui/host-management/host-list"
+      ],
+      "query_keys": [
+        "devType"
+      ],
+      "body_keys": []
+    },
+    {
+      "method": "GET",
+      "path": "/serv/v1/conf/list",
+      "count": 3,
+      "pages": [
+        "/ui/conference-management/conference-room-info",
+        "/ui/recording/recording-task",
+        "/ui/host-management/host-list"
+      ],
+      "query_keys": [
+        "type"
+      ],
+      "body_keys": []
+    },
+    {
+      "method": "GET",
+      "path": "/serv/v1/conf/oldCount",
+      "count": 1,
+      "pages": [
+        "/ui/system-info/node-authorization-information"
+      ],
+      "query_keys": [
+        "type"
+      ],
+      "body_keys": []
+    },
+    {
+      "method": "GET",
+      "path": "/serv/v1/index/info",
+      "count": 2,
+      "pages": [
+        "/ui/login",
+        "/ui/login"
+      ],
+      "query_keys": [],
+      "body_keys": []
+    },
+    {
+      "method": "GET",
+      "path": "/serv/v1/index/link",
+      "count": 1,
+      "pages": [
+        "/ui/login"
+      ],
+      "query_keys": [],
+      "body_keys": []
+    },
+    {
+      "method": "GET",
+      "path": "/serv/v1/index/moduleVersions",
+      "count": 1,
+      "pages": [
+        "/ui/login"
+      ],
+      "query_keys": [],
+      "body_keys": []
+    },
+    {
+      "method": "GET",
+      "path": "/serv/v1/recording/getServerMemory/1",
+      "count": 1,
+      "pages": [
+        "/ui/recording/recording-task"
+      ],
+      "query_keys": [],
+      "body_keys": []
+    },
+    {
+      "method": "GET",
+      "path": "/serv/v1/recording/paastask",
+      "count": 1,
+      "pages": [
+        "/ui/recording/recording-task"
+      ],
+      "query_keys": [
+        "cascade",
+        "pageSize",
+        "curPage",
+        "type"
+      ],
+      "body_keys": []
+    },
+    {
+      "method": "GET",
+      "path": "/serv/v1/sys/setting/logger",
+      "count": 1,
+      "pages": [
+        "/ui/host-management/global-setting"
+      ],
+      "query_keys": [],
+      "body_keys": []
+    },
+    {
+      "method": "GET",
+      "path": "/serv/v1/sys/setting/mail",
+      "count": 1,
+      "pages": [
+        "/ui/host-management/global-setting"
+      ],
+      "query_keys": [],
+      "body_keys": []
+    },
+    {
+      "method": "GET",
+      "path": "/serv/v1/sys/setting/mapping",
+      "count": 1,
+      "pages": [
+        "/ui/host-management/global-setting"
+      ],
+      "query_keys": [],
+      "body_keys": []
+    },
+    {
+      "method": "GET",
+      "path": "/serv/v1/sys/setting/port",
+      "count": 1,
+      "pages": [
+        "/ui/host-management/global-setting"
+      ],
+      "query_keys": [],
+      "body_keys": []
+    },
+    {
+      "method": "GET",
+      "path": "/serv/v1/terminal/check/paas",
+      "count": 1,
+      "pages": [
+        "/ui/organizational-management/terminal-management"
+      ],
+      "query_keys": [],
+      "body_keys": []
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/terminal/page",
+      "count": 1,
+      "pages": [
+        "/ui/organizational-management/terminal-management"
+      ],
+      "query_keys": [],
+      "body_keys": [
+        "pageNumber",
+        "pageSize",
+        "departId",
+        "terminalName",
+        "terminalNum",
+        "seqNum",
+        "activeStatusSort",
+        "onlineStatusSort"
+      ]
+    }
+  ]
+}

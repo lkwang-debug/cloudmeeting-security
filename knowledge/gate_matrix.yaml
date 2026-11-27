@@ -1,0 +1,149 @@
+version: 1
+categories:
+  application:
+    title: 应用安全
+    requirement: 不允许高危：XSS、木马文件上传、远程命令执行、任意文件下载、越权、暴力破解、短信炸弹
+    checks:
+    - xss_full
+    - upload_webshell
+    - rce_probe
+    - file_download
+    - idor_matrix
+    - login_policy
+    - sms_bomb
+  crypto:
+    title: 加密安全
+    requirement: 加密存储/传输；密码不明文；优先国密 SM4/SM2/SM3；否则 AES/3DES168/RSA2048/ECC256/SHA256+
+    checks:
+    - crypto_inventory
+    - secret_scan
+    - plaintext_http
+    - client_crypto
+  component:
+    title: 组件安全
+    requirement: 提供开源组件清单；无已知漏洞组件；配合整改
+    checks:
+    - sbom_collect
+    - cve_gate
+reports:
+  sample_report_01:
+    source: VUL-2026-0729 广电云视频 WEB 端复测
+    items:
+    - id: VUL-001
+      title: refresh_token 验证绕过
+      check: auth_token_checks
+      level: auto
+    - id: VUL-002
+      title: Admin 密码 MD5 泄露
+      check: auth_token_checks
+      level: auto
+    - id: VUL-003
+      title: 全公司用户数据泄露
+      check: idor_matrix
+      level: semi
+    - id: VUL-004
+      title: 会议室 ID 遍历
+      check: idor_matrix
+      level: auto
+    - id: VUL-005
+      title: PaaS 认证接口水平越权
+      check: idor_matrix
+      level: semi
+    - id: VUL-006
+      title: OAuth2 客户端凭证硬编码
+      check: client_crypto
+      level: semi
+    - id: VUL-007
+      title: FTP 凭据 + API 端点泄露
+      check: secret_scan
+      level: semi
+    - id: VUL-008
+      title: 会议室 CRUD 可操作
+      check: idor_matrix
+      level: semi
+    - id: VUL-009
+      title: 功能配置接口无需认证
+      check: idor_matrix
+      level: auto
+    - id: VUL-010
+      title: 服务端明文 HTTP
+      check: plaintext_http
+      level: auto
+    - id: VUL-011
+      title: 部门组织架构泄露
+      check: idor_matrix
+      level: semi
+    - id: VUL-012
+      title: H5 管理端无认证
+      check: idor_matrix
+      level: semi
+    - id: VUL-013
+      title: 签名算法破解
+      check: client_crypto
+      level: semi
+    - id: VUL-014
+      title: 内网 IP/架构泄露
+      check: secret_scan
+      level: auto
+    - id: VUL-015
+      title: 公网/内网认证差异
+      check: manual
+      level: manual
+  sample_report_02:
+    source: 淮北矿业 好视通技术检测报告
+    items:
+    - id: HB-001
+      title: 管理员弱口令
+      check: login_policy
+      level: semi
+    - id: HB-002
+      title: 前端 DES 加密密钥硬编码
+      check: client_crypto
+      level: auto
+    - id: HB-003
+      title: SOAP jaxws 未授权/默认 keyCode
+      check: soap_checks
+      level: auto
+    - id: HB-004
+      title: 全站用户/密码哈希泄露
+      check: auth_token_checks
+      level: semi
+    - id: HB-005
+      title: 统一默认弱密码
+      check: login_policy
+      level: semi
+    - id: HB-006
+      title: 开放注册
+      check: login_policy
+      level: semi
+    - id: HB-007
+      title: 内网地址泄露
+      check: secret_scan
+      level: auto
+  sample_report_03:
+    source: 新华三 视频会议系统渗透测试报告
+    items:
+    - id: H3C-001
+      title: 前端 3DES 密钥硬编码
+      check: client_crypto
+      level: auto
+    - id: H3C-002
+      title: 密码暴力破解防护
+      check: login_policy
+      level: semi
+middleware:
+  mysql:
+    check: middleware_scan
+    level: semi
+  redis:
+    check: middleware_scan
+    level: auto
+  rabbitmq:
+    check: middleware_scan
+    level: semi
+  zookeeper:
+    check: middleware_scan
+    level: auto
+  icegrid:
+    check: middleware_scan
+    level: semi

@@ -1,0 +1,76 @@
+version: 1
+run_id: week0
+target:
+  base_url: https://example.test:28443
+  internal_url: ''
+  hosts: []
+  ports:
+  - 28443
+  - 28080
+  env_note: 请配置自己的授权测试环境
+auth:
+  backend_token:
+    login_path: /auth/v1/login
+    user_env: SEC_BACKEND_USER
+    pass_env: SEC_BACKEND_PASS
+  oauth2_basic:
+    token_path: /meeting-resource-server/oauth2/token
+    client_id_env: SEC_CLIENT_ID
+    client_secret_env: SEC_CLIENT_SECRET
+    user_env: SEC_OAUTH_USER
+    pass_env: SEC_OAUTH_PASS
+  open_api_sha256:
+    key_env: SEC_OPEN_KEY
+    secret_env: SEC_OPEN_SECRET
+  fmapi:
+    appkey_env: SEC_FMAPI_APPKEY
+    address_path: /fmapi/servers/addresses
+  gateway:
+    origin: https://example.test:28443
+    referer: https://example.test:28443/ui/login
+identities:
+  admin:
+    source: manual
+  dept_admin:
+    source: api_fixture
+  user_a:
+    source: api_fixture
+  user_b:
+    source: api_fixture
+  cross_org_c:
+    source: api_fixture
+  anonymous:
+    source: builtin
+limits:
+  rps: 2
+  concurrency: 2
+  timeout_seconds: 30
+  body_read_limit_kb: 512
+  login_fail_limit: 3
+write_ops:
+  enabled: false
+  allowlist: []
+  require_snapshot: true
+  require_restore_verify: true
+detect:
+  ssrf_xxe: true
+  long_connection: true
+  race: true
+  gateway_smuggling: true
+  cache_poisoning: true
+  client_artifacts:
+    auto_download: false
+    sample_dir: fixtures/client_samples
+execution:
+  ssrf:
+    enabled: false
+    oast_domain: ''
+    oast_server: ''
+  longconn:
+    enabled: false
+  race:
+    enabled: false
+    concurrency: 2
+  gateway:
+    smuggling: false
+    cache_poisoning: false

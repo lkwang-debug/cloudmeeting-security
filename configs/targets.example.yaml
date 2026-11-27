@@ -1,0 +1,33 @@
+# 多环境/客户环境配置模板（复制为 configs/targets.local.yaml 后填写；不要提交真实口令）
+# 用法：把本文件内容按环境填写；脚本通过环境变量或 GATE_TARGET_PROFILE 选择。
+profiles:
+  test:
+    base_url: "https://example.test:28443"
+    ssh:
+      host: "192.0.2.10"
+      user: "root"
+      pass_env: "SEC_HOST_PASS"      # 口令放环境变量，不写文件
+    accounts:
+      admin_token_user: "admin02"
+      password_env: "SEC_BACKEND_PASS"
+      weak_test_users: ["test_user_a", "test_user_a", "test_user_a", "test_user_a", "test_user_a", "test_user_a", "test_user_a", "test_user_a", "test_user_a", "test_user_a"]
+      weak_test_password_env: "SEC_WEAK_TEST_PASS"
+    middleware:
+      mysql: {host: "192.0.2.10", port: 22007}
+      redis: {host: "192.0.2.10", port: 22002}
+      rabbitmq: {host: "192.0.2.10", port: 5672, management_port: 15672}
+      zookeeper: {host: "192.0.2.10", port: 22006}
+      icegrid: {host: "192.0.2.10", port: 22014, config: "/hst/middleware/icegridregistry/conf/icegridregistry.conf"}
+    reports:
+      appscan: "configured-path"
+      external: ""                    # SARIF/Nessus/AppScan 路径
+    deploy_package: "/hst/4.40.0.7"
+  customer_template:
+    base_url: "https://<customer-host>:28443"
+    ssh: {host: "<host>", user: "root", pass_env: "SEC_CUSTOMER_HOST_PASS"}
+    accounts:
+      admin_token_user: "<admin>"
+      password_env: "SEC_CUSTOMER_BACKEND_PASS"
+    middleware: {}                    # 按客户实际填写
+    reports: {appscan: "", external: ""}
+    deploy_package: "/hst/<version>"

@@ -1,0 +1,47 @@
+name: room_limit_lifecycle
+description: 创建 secauto 测试房间，验证 maxUserCount 上限是否被服务端限制；结束后 DB 清理
+vars:
+  room_name: secauto_scen_${ts}
+steps:
+  - name: get_license
+    action: request
+    method: GET
+    path: /meeting/v1/roominfo/license
+    expect: {code: "0"}
+    save: license
+
+  - name: get_default_template
+    action: request
+    method: GET
+    path: /meeting/v1/roominfo/default
+    expect: {code: "0"}
+    save: template
+
+  - name: create_room_with_large_maxuser
+    action: request
+    method: POST
+    path: /meeting/v1/roominfo/add
+    body_from: template
+    overrides:
+      roomName: "${room_name}"
+      roomDesc: "secauto scenario room"
+      maxUserCount: 999999
+    expect: {code: "0"}
+
+  - name: query_room_by_name
+    action: request
+    method: POST
+    path: /meeting/v1/roominfo/page
+    body: {pageNumber: 1, pageSize: 200}
+    expect: {code: "0"}
+
+  - name: verify_created_and_record_limit
+    action: sql
+    sql: "SELECT roomID,roomName,maxUserCount FROM t_roominfo WHERE roomName='${room_name}';"
+cleanup:
+  - name: cleanup_room
+    action: sql
+    sql: "DELETE FROM t_roomusers WHERE roomID IN (SELECT roomID FROM t_roominfo WHERE roomName='${room_name}'); DELETE FROM t_roominfo WHERE roomName LIKE 'secauto_scen_%';"
+  - name: verify_cleanup
+    action: sql
+    sql: "SELECT COUNT(*) FROM t_roominfo WHERE roomName LIKE 'secauto_scen_%';"

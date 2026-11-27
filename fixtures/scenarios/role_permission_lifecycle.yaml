@@ -1,0 +1,114 @@
+name: role_permission_lifecycle
+description: 角色权限生命周期（菜单9角色 → 降权为空菜单角色），验证降权后旧权限是否失效；当前版本预期 FAIL（缓存缺陷）
+vars:
+  uid: 1000000009
+  user: admin08
+  role_menu: secauto_scen_role_${ts}
+  role_empty: secauto_scen_empty_${ts}
+steps:
+  - name: login_admin_api
+    action: login
+    username: admin03
+    as: admin_api
+    password_env: SEC_BACKEND_PASS
+  - name: create_role_menu9
+    action: request
+    as: admin_api
+    method: POST
+    path: /basis/v1/role/add
+    body: {id: "", name: "${role_menu}", desc: "scenario role menu9", privileges: [9]}
+    expect: {code: "0"}
+  - name: list_roles
+    action: request
+    as: admin_api
+    method: POST
+    path: /basis/v1/role/list
+    body: {pageSize: 100, pageNumber: 1}
+    expect: {code: "0"}
+    save: rolelist1
+  - name: find_role_menu9
+    action: find_role
+    from: rolelist1
+    name: "${role_menu}"
+    as: rid_menu
+  - name: assign_role_menu9
+    action: request
+    as: admin_api
+    method: POST
+    path: /basis/v1/role/user
+    body: {roleId: "${rid_menu}", users: [1000000009]}
+    expect: {code: "0"}
+  - name: login_user_phase1
+    action: login
+    username: "${user}"
+    as: user
+    password_env: SEC_BACKEND_PASS
+  - name: user_granted_depart_tree
+    action: request
+    method: GET
+    path: /basis/v1/departInfo/queryDepartTree
+    as: user
+    expect: {code: "0"}
+  - name: user_denied_conf_list
+    action: request
+    method: GET
+    path: /serv/v1/conf/list
+    as: user
+    expect: {code: "1003"}
+  - name: create_role_empty
+    action: request
+    as: admin_api
+    method: POST
+    path: /basis/v1/role/add
+    body: {id: "", name: "${role_empty}", desc: "scenario empty", privileges: []}
+    expect: {code: "0"}
+  - name: list_roles2
+    action: request
+    as: admin_api
+    method: POST
+    path: /basis/v1/role/list
+    body: {pageSize: 100, pageNumber: 1}
+    expect: {code: "0"}
+    save: rolelist2
+  - name: find_role_empty
+    action: find_role
+    from: rolelist2
+    name: "${role_empty}"
+    as: rid_empty
+  - name: assign_role_empty
+    action: request
+    as: admin_api
+    method: POST
+    path: /basis/v1/role/user
+    body: {roleId: "${rid_empty}", users: [1000000009]}
+    expect: {code: "0"}
+  - name: login_user_phase2
+    action: login
+    username: "${user}"
+    as: user
+    password_env: SEC_BACKEND_PASS
+  - name: user_after_downgrade_should_deny
+    action: request
+    method: GET
+    path: /basis/v1/departInfo/queryDepartTree
+    as: user
+    expect: {code: "1003"}
+cleanup:
+  - name: restore_admin_role
+    action: sql
+    sql: "UPDATE t_userinfo SET AdminRole='11' WHERE UserID=${uid};"
+  - name: del_role_menu9
+    action: request
+    as: admin_api
+    method: GET
+    path: /basis/v1/role/del
+    params: {id: "${rid_menu}"}
+  - name: del_role_empty
+    action: request
+    as: admin_api
+    method: GET
+    path: /basis/v1/role/del
+    params: {id: "${rid_empty}"}
+  - name: clear_user_cache
+    action: redis_del
+    keys: ["AUTH::AUTH_PRI_${uid}", "AUTH::AUTH_PRI_MENU_${uid}"]

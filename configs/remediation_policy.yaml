@@ -1,0 +1,12 @@
+version: 1
+default_owner: "研发"
+category_owner:
+  application: "研发-应用"
+  crypto: "研发-加密"
+  component: "研发-组件"
+  middleware: "运维-中间件"
+sla_days:
+  critical: 3
+  high: 7
+  medium: 30
+  low: 90

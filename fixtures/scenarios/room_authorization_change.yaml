@@ -1,0 +1,74 @@
+name: room_authorization_change
+description: 会议室授权变更：创建房间 → 添加授权用户(admin00) → 查询授权列表 → 清理
+vars:
+  room_name: secauto_auth_${ts}
+  uid: 1000000001
+steps:
+  - name: login_admin
+    action: login
+    username: admin03
+    as: admin_api
+    password_env: SEC_BACKEND_PASS
+
+  - name: get_default
+    action: request
+    method: GET
+    path: /meeting/v1/roominfo/default
+    as: admin_api
+    expect: {code: "0"}
+    save: template
+
+  - name: create_room
+    action: request
+    method: POST
+    path: /meeting/v1/roominfo/add
+    as: admin_api
+    body_from: template
+    overrides: {roomName: "${room_name}", roomDesc: "secauto auth room"}
+    expect: {code: "0"}
+
+  - name: list_rooms
+    action: request
+    method: POST
+    path: /meeting/v1/roominfo/page
+    as: admin_api
+    body: {pageNumber: 1, pageSize: 200}
+    expect: {code: "0"}
+    save: rooms
+
+  - name: find_room
+    action: find_record
+    from: rooms
+    field: roomName
+    value: "${room_name}"
+    id_field: roomID
+    as: room_id
+
+  - name: add_authorized_user
+    action: try_bodies
+    method: POST
+    path: /meeting/v1/roominfo/authorized-user
+    as: admin_api
+    bodies:
+      - {roomID: "${room_id}", attendList: [{right: 2, userID: 1000000001}], chairmanList: [], auditList: []}
+      - {roomID: "${room_id}", attendList: [{right: 2, userid: 1000000001}], chairmanList: [], auditList: []}
+      - {roomID: "${room_id}", attendList: [{userID: 1000000001}], chairmanList: [], auditList: []}
+      - {roomID: "${room_id}", attendList: [1000000001], chairmanList: [], auditList: []}
+
+  - name: query_authorized_list
+    action: request
+    method: POST
+    path: /meeting/v1/roominfo/authorized-user-list
+    as: admin_api
+    body: {roomID: "${room_id}", pageNumber: 1, pageSize: 20}
+
+  - name: verify_db_authorized
+    action: sql
+    sql: "SELECT COUNT(*) FROM t_roominfo WHERE roomName LIKE 'secauto_auth_%';"
+cleanup:
+  - name: delete_room
+    action: sql
+    sql: "DELETE FROM t_roomusers WHERE roomID IN (SELECT roomID FROM t_roominfo WHERE roomName LIKE 'secauto_auth_%'); DELETE FROM t_roominfo WHERE roomName LIKE 'secauto_auth_%';"
+  - name: verify_cleanup
+    action: sql
+    sql: "SELECT COUNT(*) FROM t_roominfo WHERE roomName LIKE 'secauto_auth_%';"

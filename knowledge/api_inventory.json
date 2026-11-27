@@ -1,0 +1,2028 @@
+{
+  "count": 206,
+  "endpoints": [
+    {
+      "method": "POST",
+      "path": "/api/v1/control/${control_room_id}",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/control/${control_room_id}/subscriptions",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/control/${control_room_id}/subscriptions",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/control/${v440_control_room_id}",
+      "query_keys": [],
+      "body_keys": [
+        "Content-Type"
+      ],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/control/2147483000",
+      "query_keys": [],
+      "body_keys": [
+        "Content-Type"
+      ],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/control/subscriptions",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/control/{roomId}",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/control/{roomId}/subscriptions",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/control/{roomId}/subscriptions",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/department/add",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html",
+        "test_data.xlsx",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/department/delete",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html",
+        "test_data.xlsx",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/department/edit",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html",
+        "test_data.xlsx",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/department/list",
+      "query_keys": [],
+      "body_keys": [
+        "Content-Type"
+      ],
+      "sources": [
+        "api_html",
+        "test_data.xlsx",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/departments/third",
+      "query_keys": [],
+      "body_keys": [
+        "Content-Type"
+      ],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/departments/third",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/departments/third",
+      "query_keys": [],
+      "body_keys": [
+        "Content-Type"
+      ],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/departments/third",
+      "query_keys": [],
+      "body_keys": [
+        "Content-Type"
+      ],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/departments/third/root",
+      "query_keys": [],
+      "body_keys": [
+        "Content-Type"
+      ],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/record/${recordId}/files",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/record/list",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/${roomId}/web-control",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/room/addRoomInfo",
+      "query_keys": [],
+      "body_keys": [
+        "Content-Type"
+      ],
+      "sources": [
+        "api_html",
+        "test_data.xlsx",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/room/authRoom",
+      "query_keys": [],
+      "body_keys": [
+        "Content-Type"
+      ],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/room/authUser",
+      "query_keys": [],
+      "body_keys": [
+        "Content-Type"
+      ],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/room/authUserBatch",
+      "query_keys": [],
+      "body_keys": [
+        "Content-Type"
+      ],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/room/batchAddRoomInfo",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/room/cleanRoom",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/room/createInstant",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/room/defaultSetting",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/room/delRoomInfo",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/room/editRoomInfo",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/room/editRoomRecordSettings",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/room/editRoomStatus",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/room/fixed",
+      "query_keys": [],
+      "body_keys": [
+        "Content-Type"
+      ],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/room/kickOut",
+      "query_keys": [],
+      "body_keys": [
+        "Content-Type"
+      ],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/room/layout",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/loginAddr",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/room/meetingLog",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/room/onlineRoom",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/room/participant",
+      "query_keys": [],
+      "body_keys": [
+        "Content-Type"
+      ],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/room/permission",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/queryRoomRecordSettings",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/room/record-summaries",
+      "query_keys": [],
+      "body_keys": [
+        "Content-Type"
+      ],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/record-summaries",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/record-summaries/${cov_chat_group}/chat/export",
+      "query_keys": [],
+      "body_keys": [
+        "Content-Type"
+      ],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/record-summaries/${cov_task_group}/record-tasks",
+      "query_keys": [],
+      "body_keys": [
+        "Content-Type"
+      ],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/record-summaries/${record_summary_delete_with_files_group_id}/records",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/record-summaries/${record_summary_export_group_id}/summary/export",
+      "query_keys": [],
+      "body_keys": [
+        "Content-Type"
+      ],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/record-summaries/${record_summary_export_group_id}/transcript/export",
+      "query_keys": [],
+      "body_keys": [
+        "Content-Type"
+      ],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/record-summaries/${record_summary_group_id}",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/record-summaries/${record_summary_group_id}/participants",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/record-summaries/${record_summary_group_id}/share",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/record-summaries/${record_summary_record_group_id}/record-tasks",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/record-summaries/${record_summary_record_group_id}/records",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/record-summaries/${v440_record_group}/records",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/record-summaries/not-exists-group-id",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/room/record-summaries/records",
+      "query_keys": [],
+      "body_keys": [
+        "Content-Type"
+      ],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/record-summaries/room",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/record-summaries/{groupId}",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/record-summaries/{groupId}/participants",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/record-summaries/{groupId}/record-tasks",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/record-summaries/{groupId}/records",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/record-summaries/{groupId}/share",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/record-summaries/{groupId}/summary/export",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/record-summaries/{groupId}/transcript/export",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/room/reservation",
+      "query_keys": [],
+      "body_keys": [
+        "Content-Type"
+      ],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/room/roomList",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/roomList/{userName}",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/room/roomLog",
+      "query_keys": [],
+      "body_keys": [
+        "Content-Type"
+      ],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/room/routine",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/room/sendMsg",
+      "query_keys": [],
+      "body_keys": [
+        "Content-Type"
+      ],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/summary",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/summary/${groupId}",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/summary/664ed76d-4973-3222-0d00-000000000000",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/summary/{groupId}",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/room/userInRoom",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/room/userNum",
+      "query_keys": [],
+      "body_keys": [
+        "Content-Type"
+      ],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/watermark/${rwRoomAllDefault}",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/room/watermark/${rwRoomAllDefault}",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/watermark/${rwRoomAllDisabled}",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/room/watermark/${rwRoomAllDisabled}",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/watermark/${rwRoomDefaultTextTime}",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/room/watermark/${rwRoomDefaultTextTime}",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/watermark/${rwRoomTextImage}",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/room/watermark/${rwRoomTextImage}",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/watermark/${rwRoomTimeImage}",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/room/watermark/${rwRoomTimeImage}",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/watermark/0",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/room/watermark/0",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/room/{roomId}/web-control",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/user/add",
+      "query_keys": [],
+      "body_keys": [
+        "Content-Type"
+      ],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/user/addBatch",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/user/batch",
+      "query_keys": [],
+      "body_keys": [
+        "Content-Type"
+      ],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/user/del",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/user/edit",
+      "query_keys": [],
+      "body_keys": [
+        "Content-Type"
+      ],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/user/list",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/user/online/HZK_admin",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/user/online/HZK_admin02",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/user/online/{userName}",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/user/roomUserList",
+      "query_keys": [],
+      "body_keys": [
+        "Content-Type"
+      ],
+      "sources": [
+        "api_html",
+        "test_data_v2.xlsx"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/auth/v1/identity/get",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/auth/v1/login",
+      "query_keys": [],
+      "body_keys": [
+        "password",
+        "name",
+        "verifyCode",
+        "timestamp"
+      ],
+      "sources": [
+        "all_backend_endpoints.json",
+        "backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/auth/v1/login/verifyCode",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/auth/v1/login/verifyCode",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/auth/v1/logout",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/auth/v1/webControl/link",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/auth/v1/webControl/login",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/basis/v1/client-functions",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/basis/v1/client-functions/contact_whitelist/users",
+      "query_keys": [],
+      "body_keys": [
+        "pageNumber",
+        "pageSize",
+        "cascadeQuery",
+        "useCache"
+      ],
+      "sources": [
+        "backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/basis/v1/client-functions/defaults",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/departInfo/addDepart",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/departInfo/deleteDepartByIds",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/departInfo/departEdit",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/departInfo/departTreeSearch",
+      "query_keys": [],
+      "body_keys": [
+        "departId",
+        "excludeSub",
+        "searchDeptName"
+      ],
+      "sources": [
+        "all_backend_endpoints.json",
+        "backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/departInfo/queryDepartPage",
+      "query_keys": [],
+      "body_keys": [
+        "pageNumber",
+        "pageSize",
+        "parentDepartId",
+        "departName"
+      ],
+      "sources": [
+        "all_backend_endpoints.json",
+        "backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/basis/v1/departInfo/queryDepartTree",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/departInfo/queryDepartTree",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/departInfo/updateDepart",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/faces/guests",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/basis/v1/groups",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/groups",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/license/getRegisterStatus",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/basis/v1/nodeAuth/queryNodeAuthInfo",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/nodeAuth/queryNodeAuthInfo",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/nodeAuth/queryNodeInfoById",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/nodeAuth/updateNodeInfo",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/role/add",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/role/list",
+      "query_keys": [],
+      "body_keys": [
+        "pageSize",
+        "pageNumber",
+        "sortName",
+        "sortOrder"
+      ],
+      "sources": [
+        "all_backend_endpoints.json",
+        "backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/role/menu",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/role/modify",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/role/user",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/userInfo/addUser",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/userInfo/batchAdd",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/userInfo/batchDelete",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/userInfo/batchUpdatePwd",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/userInfo/downloadModel",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/userInfo/exportUser",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/userInfo/forceUpdatePwd",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/userInfo/importUser",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/userInfo/onlineUserEdit",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/userInfo/queryUserPage",
+      "query_keys": [],
+      "body_keys": [
+        "departId",
+        "userName",
+        "displayName",
+        "pageNumber",
+        "pageSize",
+        "userNameOrder"
+      ],
+      "sources": [
+        "all_backend_endpoints.json",
+        "backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/userInfo/queryUserPageByDepartIds",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/userInfo/topUser",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/userInfo/updateUser",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/userInfo/updateUserInfo",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/userInfo/userEdit",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/basis/v1/userInfo/userNameIsExist",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/code",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/code",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html"
+      ]
+    },
+    {
+      "method": "HEAD",
+      "path": "/main",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "api_html"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/ai/model/page",
+      "query_keys": [],
+      "body_keys": [
+        "pageNumber",
+        "pageSize"
+      ],
+      "sources": [
+        "backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/conf/add",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/serv/v1/conf/category",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/conf/category",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/conf/check",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/conf/delete",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/conf/info",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/serv/v1/conf/initial",
+      "query_keys": [],
+      "body_keys": [
+        "devType"
+      ],
+      "sources": [
+        "backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/conf/initial",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/conf/ip",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/serv/v1/conf/list",
+      "query_keys": [],
+      "body_keys": [
+        "type"
+      ],
+      "sources": [
+        "backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/conf/list",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/conf/mapping",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/serv/v1/conf/oldCount",
+      "query_keys": [],
+      "body_keys": [
+        "type"
+      ],
+      "sources": [
+        "backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/conf/oldCount",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/conf/operate",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/conf/port",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/index/down",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/serv/v1/index/info",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/index/info",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/serv/v1/index/link",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/index/link",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/serv/v1/index/moduleVersions",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/index/moduleVersions",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/live/getLiveAddr",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/recording/getPaasUrl",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/recording/getPassPlayUrl",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/serv/v1/recording/getServerMemory/1",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/recording/img/upload",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/recording/layout",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/serv/v1/recording/paastask",
+      "query_keys": [],
+      "body_keys": [
+        "cascade",
+        "pageSize",
+        "curPage",
+        "type"
+      ],
+      "sources": [
+        "backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/recording/paastask",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/recording/priority",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/recording/universal",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/recording/url",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/status/quota",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/status/quota/platform",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/serv/v1/sys/setting/logger",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/serv/v1/sys/setting/mail",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/serv/v1/sys/setting/mapping",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/serv/v1/sys/setting/port",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/terminal/add",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/terminal/attr/4K_H265",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/serv/v1/terminal/check/paas",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/terminal/check/paas",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/terminal/check/status",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/terminal/delete",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/terminal/excel",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/terminal/import",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/terminal/import/model",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/terminal/log/upload",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/terminal/page",
+      "query_keys": [],
+      "body_keys": [
+        "pageNumber",
+        "pageSize",
+        "departId",
+        "terminalName",
+        "terminalNum",
+        "seqNum",
+        "activeStatusSort",
+        "onlineStatusSort"
+      ],
+      "sources": [
+        "all_backend_endpoints.json",
+        "backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/terminal/reboot",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/terminal/shutdown",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/terminal/type/list",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/serv/v1/terminal/update",
+      "query_keys": [],
+      "body_keys": [],
+      "sources": [
+        "all_backend_endpoints.json"
+      ]
+    }
+  ]
+}

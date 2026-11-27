@@ -1,0 +1,66 @@
+# 功能用例 -> 安全场景映射（Week0 样例：会议室 / 用户 / 录制各 1 个）
+# 规则：不 1:1 映射；每个场景必须有 baselines（正例，证明请求有效）+ mutations（负向变异）；
+#       expected 为权限预期；evidence 为判定所需证据；cleanup 为清理动作；verifier 为判定器。
+version: 1
+
+scenarios:
+  - id: SEC-ROOM-002
+    feature: 会议室管理
+    title: 会议室新增接口的跨部门/低权限/字段越权
+    endpoint: POST /api/v1/room/addRoomInfo
+    auth: backend_token
+    source_cases: [S01_002, S01_003]      # 来自 ces-api 会议室管理 sheet（示例）
+    identities: [dept_admin_a, user_a, anonymous, expired_token]
+    baselines:
+      - identity: admin
+        expect: success                 # 合法请求必须成功，证明端点与参数有效
+    mutations:
+      - {type: no_auth}
+      - {type: low_priv, identity: user_a}
+      - {type: cross_org, identity: dept_admin_b, field: departId}
+      - {type: field_injection, field: adminRole, value: "0"}
+    expected: deny                       # 未授权身份应 401/403，或返回后反查对象未创建
+    evidence: [http_status, response_body, state_recheck, response_diff]
+    verifier: rbac_matrix
+    cleanup: [delete_room_if_created]
+    risk: high
+
+  - id: SEC-USER-001
+    feature: 用户管理
+    title: 用户列表的垂直越权与跨部门枚举
+    endpoint: POST /api/v1/user/list
+    auth: backend_token
+    source_cases: [user_001, user_010]
+    identities: [user_a, dept_admin_a, dept_admin_b, anonymous]
+    baselines:
+      - identity: admin
+        expect: success
+    mutations:
+      - {type: low_priv, identity: user_a}
+      - {type: cross_org, identity: dept_admin_b, field: departId}
+      - {type: page_overflow, param: pageSize, value: 10000}
+    expected: deny_or_limited
+    evidence: [http_status, body_record_count, cross_org_diff]
+    verifier: rbac_matrix
+    cleanup: []
+    risk: high
+
+  - id: SEC-REC-001
+    feature: 录制管理
+    title: 录制摘要详情的对象越权（IDOR）
+    endpoint: GET /api/v1/room/record-summaries/${record_summary_group_id}
+    auth: backend_token
+    source_cases: [record_001]
+    identities: [dept_admin_b, user_a, anonymous, expired_token]
+    baselines:
+      - identity: admin
+        expect: success
+    mutations:
+      - {type: object_swap, identity: dept_admin_b, object: record_summary_group_id}
+      - {type: no_auth}
+      - {type: expired_token}
+    expected: deny
+    evidence: [http_status, file_or_record_fingerprint, owner_recheck]
+    verifier: idor_matrix
+    cleanup: []
+    risk: critical

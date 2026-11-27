@@ -1,0 +1,78 @@
+name: meeting_lifecycle
+description: 会议生命周期：创建房间 → 查询详情 → 修改邀请码 → 分享接口一致性校验 → 清理
+vars:
+  room_name: secauto_meet_${ts}
+  invite: "654321"
+steps:
+  - name: login_admin
+    action: login
+    username: admin03
+    as: admin_api
+    password_env: SEC_BACKEND_PASS
+
+  - name: get_default
+    action: request
+    method: GET
+    path: /meeting/v1/roominfo/default
+    as: admin_api
+    expect: {code: "0"}
+    save: template
+
+  - name: create_room
+    action: request
+    method: POST
+    path: /meeting/v1/roominfo/add
+    as: admin_api
+    body_from: template
+    overrides: {roomName: "${room_name}", roomDesc: "secauto lifecycle room"}
+    expect: {code: "0"}
+
+  - name: list_rooms
+    action: request
+    method: POST
+    path: /meeting/v1/roominfo/page
+    as: admin_api
+    body: {pageNumber: 1, pageSize: 200}
+    expect: {code: "0"}
+    save: rooms
+
+  - name: find_room
+    action: find_record
+    from: rooms
+    field: roomName
+    value: "${room_name}"
+    id_field: roomID
+    as: room_id
+
+  - name: get_room_detail
+    action: request
+    method: GET
+    path: /meeting/v1/roominfo/get/${room_id}
+    as: admin_api
+    expect: {code: "0"}
+
+  - name: update_invitation_code
+    action: try_bodies
+    method: POST
+    path: /meeting/v1/roominfo/update-invitation-code
+    as: admin_api
+    bodies:
+      - {roomID: "${room_id}", invitationCode: "654321"}
+      - {roomID: "${room_id}", inviteCode: "654321"}
+      - {roomId: "${room_id}", code: "654321"}
+      - {roomID: "${room_id}", invitationCodeDay: 1}
+
+  - name: share_api
+    action: request
+    method: GET
+    path: /meeting-resource-server/open/rooms/share/${room_id}
+    headers:
+      Authorization: "Basic ZTU2ZGNlNjEtOTg4MS00YzRlLTg2NzItY2E4YjkzM2ZjZjNhOmRlOWZkZmE5LTdjZTYtNDAzNy1hMzQzLTE5OGQzMTMyY2M0Nw=="
+    save: share_result
+cleanup:
+  - name: delete_room
+    action: sql
+    sql: "DELETE FROM t_roomusers WHERE roomID IN (SELECT roomID FROM t_roominfo WHERE roomName LIKE 'secauto_meet_%'); DELETE FROM t_roominfo WHERE roomName LIKE 'secauto_meet_%';"
+  - name: verify_cleanup
+    action: sql
+    sql: "SELECT COUNT(*) FROM t_roominfo WHERE roomName LIKE 'secauto_meet_%';"

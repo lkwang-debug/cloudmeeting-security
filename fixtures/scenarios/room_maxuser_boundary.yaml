@@ -1,0 +1,87 @@
+name: room_maxuser_boundary
+description: 验证会议室最大人数上限（业务规则边界）：默认模板 + 300/301/1000/5000/999999；结束后 DB 清理
+vars:
+  base: secauto_scen
+steps:
+  - name: get_default_template
+    action: request
+    method: GET
+    path: /meeting/v1/roominfo/default
+    expect: {code: "0"}
+    save: template
+
+  - name: create_default
+    action: request
+    method: POST
+    path: /meeting/v1/roominfo/add
+    body_from: template
+    overrides: {roomName: "${base}_default_${ts}", roomDesc: "scen default"}
+    expect: {code: "0"}
+
+  - name: create_max300
+    action: request
+    method: POST
+    path: /meeting/v1/roominfo/add
+    body_from: template
+    overrides: {roomName: "${base}_m300_${ts}", maxUserCount: 300}
+    expect: {code: "0"}
+
+  - name: create_max301
+    action: request
+    method: POST
+    path: /meeting/v1/roominfo/add
+    body_from: template
+    overrides: {roomName: "${base}_m301_${ts}", maxUserCount: 301}
+
+  - name: create_max1000
+    action: request
+    method: POST
+    path: /meeting/v1/roominfo/add
+    body_from: template
+    overrides: {roomName: "${base}_m1000_${ts}", maxUserCount: 1000}
+
+  - name: create_max5000
+    action: request
+    method: POST
+    path: /meeting/v1/roominfo/add
+    body_from: template
+    overrides: {roomName: "${base}_m5000_${ts}", maxUserCount: 5000}
+
+  - name: create_max10000
+    action: request
+    method: POST
+    path: /meeting/v1/roominfo/add
+    body_from: template
+    overrides: {roomName: "${base}_m10000_${ts}", maxUserCount: 10000}
+
+  - name: create_max50000
+    action: request
+    method: POST
+    path: /meeting/v1/roominfo/add
+    body_from: template
+    overrides: {roomName: "${base}_m50000_${ts}", maxUserCount: 50000}
+
+  - name: create_max100000
+    action: request
+    method: POST
+    path: /meeting/v1/roominfo/add
+    body_from: template
+    overrides: {roomName: "${base}_m100000_${ts}", maxUserCount: 100000}
+
+  - name: create_max999999
+    action: request
+    method: POST
+    path: /meeting/v1/roominfo/add
+    body_from: template
+    overrides: {roomName: "${base}_m999999_${ts}", maxUserCount: 999999}
+
+  - name: verify_db
+    action: sql
+    sql: "SELECT roomName,maxUserCount FROM t_roominfo WHERE roomName LIKE 'secauto_scen_%' ORDER BY roomName;"
+cleanup:
+  - name: cleanup_rooms
+    action: sql
+    sql: "DELETE FROM t_roomusers WHERE roomID IN (SELECT roomID FROM t_roominfo WHERE roomName LIKE 'secauto_scen_%'); DELETE FROM t_roominfo WHERE roomName LIKE 'secauto_scen_%';"
+  - name: verify_cleanup
+    action: sql
+    sql: "SELECT COUNT(*) FROM t_roominfo WHERE roomName LIKE 'secauto_scen_%';"

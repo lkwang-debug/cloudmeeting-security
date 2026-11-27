@@ -1,0 +1,26 @@
+# 产品画像（V8 知识库补齐）
+product:
+  name: HST CloudMeeting
+  version: 4.40.0.8
+  deployment: 私有云（440ces 漏洞处理环境）
+  frontend:
+    admin_spa: /ui/（Vue3 + hash 路由）
+    h5_webapp: /webapp/
+    client: PC 80.6 / Android 3.41.5.22
+  backend:
+    gateway: nginx 1.30.7（28443 TLS；28080 内部）
+    services: hst-basis / hst-auth / manager-server / meeting-resource-server / ngproxy
+    db: MySQL 9.6（fastmeeting）
+    cache: Redis 7.2（AUTH_PRI_* 权限缓存）
+  auth:
+    admin: /auth/v1/login（点选验证码，单会话，token 57 字符）
+    oauth2: /meeting-resource-server/oauth2/token（Basic 客户端 + password/PKCE 类）
+    fmapi: MD5(appkey+appkey+version+timestamp) 签名
+    open_api: SHA256 三段签名（t_api_power key/secret）
+  roles:
+    builtin: 2=基本角色, 3=Admin, 10=内置ID, 11=自定义样例
+    note: 自定义角色菜单权限经 t_role_menu → t_menu.url → AUTH_PRI 缓存；无角色级部门范围模型
+  known_risks:
+    - 硬编码 OAuth2 客户端凭据（VUL-006）
+    - 权限缓存 TTL=-1，角色变更后未失效（F-01）
+    - 分享/地址接口信息泄露候选（F-02/F-03）

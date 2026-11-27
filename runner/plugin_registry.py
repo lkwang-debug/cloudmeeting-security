@@ -1,0 +1,13 @@
+"""V8 插件注册表（统一元数据：命令/是否写/规则/预期失败/描述）。"""
+import sys as _sys
+from pathlib import Path as _Path
+_sys.path.insert(0, str(_Path(__file__).resolve().parents[1]))
+from runner import public_config as _pub
+import os
+import sys
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PY = sys.executable
+
+def p(path):
+    return os.path.join(ROOT, path)
+PLUGINS = {'preflight': {'cmd': [PY, p('runner/preflight.py')], 'write': False, 'rule': None, 'expected_fail': False, 'desc': '刷新后台 token'}, 'detect_candidates': {'cmd': [PY, p('knowledge/build_detect_candidates.py')], 'write': False, 'rule': None, 'expected_fail': False, 'desc': '条件检测候选生成'}, 'java_sbom': {'cmd': [PY, p('checks/java_sbom.py')], 'write': False, 'rule': None, 'expected_fail': False, 'desc': 'Java 依赖 SBOM/CVE 候选'}, 'param_mining': {'cmd': [PY, p('checks/param_mining.py')], 'write': False, 'rule': None, 'expected_fail': False, 'desc': '参数挖掘'}, 'injection_matrix': {'cmd': [PY, p('checks/injection_matrix.py')], 'write': False, 'rule': None, 'expected_fail': False, 'desc': '注入矩阵（SQLi 差分）'}, 'ssrf_oast': {'cmd': [PY, p('checks/upload_xxe.py')], 'write': True, 'rule': 'ssrf_xxe', 'expected_fail': False, 'desc': 'SSRF/XXE（OAST）'}, 'conditional': {'cmd': [PY, p('checks/p2_conditional.py')], 'write': False, 'rule': 'long_connection', 'expected_fail': False, 'desc': '走私/缓存/长连接条件检测'}, 'race_users': {'cmd': [PY, p('checks/race_users.py')], 'write': True, 'rule': 'race', 'expected_fail': False, 'desc': '并发竞态（用户创建）'}, 'scenario_room_maxuser': {'cmd': [PY, p('runner/scenario_engine.py'), p('fixtures/scenarios/room_maxuser_boundary.yaml')], 'write': True, 'rule': None, 'expected_fail': False, 'desc': '房间人数边界'}, 'scenario_meeting_lifecycle': {'cmd': [PY, p('runner/scenario_engine.py'), p('fixtures/scenarios/meeting_lifecycle.yaml')], 'write': True, 'rule': None, 'expected_fail': False, 'desc': '会议生命周期'}, 'scenario_room_authorization': {'cmd': [PY, p('runner/scenario_engine.py'), p('fixtures/scenarios/room_authorization_change.yaml')], 'write': True, 'rule': None, 'expected_fail': True, 'desc': '会议室授权变更（schema 待补）'}, 'role_permission_lifecycle': {'cmd': [PY, p('runner/scenario_engine.py'), p('fixtures/scenarios/role_permission_lifecycle.yaml')], 'write': True, 'rule': None, 'expected_fail': True, 'desc': '角色权限生命周期（F-01 已知）'}, 'ai_evidence_review': {'cmd': [PY, p('runner/ai_evidence_review.py')], 'write': False, 'rule': None, 'expected_fail': False, 'desc': '规则证据复核'}, 'llm_evidence_review': {'cmd': [PY, p('runner/llm_evidence_review.py')], 'write': False, 'rule': None, 'expected_fail': False, 'desc': 'LLM 证据复核'}, 'release_gate': {'cmd': [PY, p('runner/release_gate.py'), '--profile', 'quick'], 'write': False, 'rule': None, 'expected_fail': False, 'desc': 'V8.2 发布安全门禁'}}

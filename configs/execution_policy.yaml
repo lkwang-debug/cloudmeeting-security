@@ -1,0 +1,33 @@
+budget:
+  max_plugins: 20
+  max_seconds: 1800
+rate_limit:
+  min_interval_seconds: 0.2
+read_only: false
+state:
+  path: state/orchestrator_state.json
+  resume: true
+abort_file: state/ABORT
+plans:
+  smoke:
+  - param_mining
+  - scenario_room_maxuser
+  - ai_evidence_review
+  full:
+  - preflight
+  - detect_candidates
+  - java_sbom
+  - param_mining
+  - injection_matrix
+  - conditional
+  - ssrf_oast
+  - race_users
+  - scenario_room_maxuser
+  - scenario_meeting_lifecycle
+  - scenario_room_authorization
+  - role_permission_lifecycle
+  - ai_evidence_review
+  - llm_evidence_review
+  gate:
+  - preflight
+  - release_gate
